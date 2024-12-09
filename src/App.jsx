@@ -2,11 +2,14 @@ import { useRef, useState } from "react";
 import StudentList from "./component/student-list";
 
 function App() {
+  //students is the initial value
+  //setStudents is a function ang magiging value ay kung ano ang irereturn ng function sineset ng function na to kung anong magiging value
+  //useState built in function ng React, nirere-render yung buong function everytime na may nababago
   const [students, setStudents] = useState([
     { name: "Benj", section: "Section1", course: "BSIT" },
     { name: "Grace", section: "Section2", course: "BSIT" },
   ]);
-
+  
   const [searchFilter, setSearchFilter] = useState("");
 
   const nameRef = useRef(null);
@@ -20,6 +23,7 @@ function App() {
       section: sectionRef.current.value,
     };
     // console.log(newStudent);
+    //...prev spread operator copies the value of the array then add newStudent that will become the new value of setStudents
     setStudents((prev) => [...prev, newStudent]);
     nameRef.current.value = "";
     courseRef.current.value = "";
